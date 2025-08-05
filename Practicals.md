@@ -21,7 +21,9 @@ It lets you store key-value data temporarily, for one browser tab/session only.
 ### Dependency Array
 In React hooks like useMemo, useEffect, and useCallback, the dependency array tells React:\
 
-“Only re-run this logic if something inside the array changes.”
+“Only re-run this logic if something inside the array changes.”\
+
+if its's **empty**, Run this effect only once — right after the component mounts (i.e., gets rendered for the first time).
 
 ### propTypes
 propTypes is a way to check and validate the props (data) that a React component receives.\
@@ -207,3 +209,41 @@ is the `action`
 - action.type → tells the reducer what to do
 - action.payload → gives it the data to do it (optional)
 - reducer → Function that receives action and updates state
+
+  ### beforeunload
+It's a special browser event that runs when:
+  - You try to close the tab or window
+  - You refresh the page
+  - You navigate away from the current page
+
+This event allows you to warn the user so they don’t accidentally lose their progress.
+###  popstate
+for backbutton
+
+**window.history.pushState(null, '', window.location.pathname);**
+It inserts a dummy entry in the browser's history stack.
+So when the user hits the back button, they go from:
+
+```csharp
+[Real Page] → [Fake Page from pushState]
+```
+Pressing Back now just pops that fake entry — and you can catch it using window.onpopstate.\
+It recognizes it as fake entry (recognizes by the React app thus update the UI manually) so You never navigated to it naturally (it was added manually),\
+
+*This is how client-side routing works in React (with libraries like React Router).*
+Thus, Added to browser history but NEVER Triggers page reload
+
+
+<img width="611" height="243" alt="Screenshot 2025-08-06 at 1 25 10 AM" src="https://github.com/user-attachments/assets/479e994b-ebff-4a40-95a7-81e4c05c3539" />
+
+
+### Protected Route
+```js
+const ProtRoute = ({ children }) => {
+  return isAuthenticated ? children : <Navigate to="/" replace />;
+};
+```
+({ children }) - This component receives whatever is inside it in JSX as children.
+i.e `<ProtQuizRoute> <QuizPage /> </ProtQuizRoute>`
+
+
