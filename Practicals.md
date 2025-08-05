@@ -11,6 +11,12 @@ It lets you store key-value data temporarily, for one browser tab/session only.
 | 🌐 Tab Scope       | **Tab-specific** (not shared)    | Shared across all tabs of same domain            |
 | 📦 Storage Limit   | \~5MB                            | \~5MB                                            |
 | 🧽 Clears when...? | You close the tab or reload hard | Only clears when you delete manually or via code |
+**NOTE: sessionStorage and localStorage can only store strings — not objects, arrays, or any other data types.**
+
+| Step                  | Why it's needed                         |
+| --------------------- | --------------------------------------- |
+| `JSON.stringify(obj)` | Converts object to string for storage   |
+| `JSON.parse(str)`     | Converts it back to object when reading |
 
 ### Dependency Array
 In React hooks like useMemo, useEffect, and useCallback, the dependency array tells React:\
@@ -128,7 +134,7 @@ It gives you a Context object with two components:
   - X.Consumer → (optional) used to receive data (we now mostly use useContext() instead)
 eg `<X.Provider> {y} </X.Provider>`
 
-**PropDrilling**
+**Props Drilling v/s Context API**
 Prop drilling is when you pass data through many nested components just to reach the one that needs it.\
 Using Context avoids this by letting any component access the data directly — keeping your code cleaner and easier to manage.\
 
