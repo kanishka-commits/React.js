@@ -11,12 +11,15 @@ Each lifecycle of a component is having 3 phases which include mount, unmount, a
   - It follows unidirectional data binding or data flow.
   - It uses reusable or composable UI components for developing the view.
 
-Why Virtual Dom: Each time the data changes in a react app, a new virtual DOM gets created. Creating a virtual DOM is much faster than rendering the UI inside the browser. 
-SEO FRiendly: It also allows server-side rendering, which boosts the SEO of an app.
+Why Virtual Dom: Each time the data changes in a react app, a new virtual DOM gets created. Creating a virtual DOM is much faster than rendering the UI inside the browser. \
+SEO FRiendly: It also allows server-side rendering, which boosts the SEO of an app.\
+Higher-Order Component(HOC) is a function that takes in a component and returns a new component. \
 
 **Concept: React uses two virtual DOMs to render the user interface. One of them is used to store the current state of the objects and the other to store the previous state of the objects. Whenever the virtual DOM gets updated, react compares the two virtual DOMs and gets to know about which virtual DOM objects were updated. After knowing which objects were updated, react renders only those objects inside the real DOM instead of rendering the complete real DOM. This way, with the use of virtual DOM, react solves the problem of inefficient updating.**
 
-
+few techniques to optimize React app performanc- Lazyloading, useMemo()\
+What are the different phases of the component lifecycle? Initialization, Mounting, Updating, Unmounting\
+*(Mounting refers to putting the elements into the browser DOM)*
 ## Create React App (CRA) 
 It's a command-line interface (CLI) tool that automates the setup of a new React project. It was officially supported by the React team and provided a streamlined way to get started with React development without needing to manually configure build tools like Webpack and Babel. 
 
@@ -49,6 +52,21 @@ Less flexible (it imposes structure)\
 
 you need to add extra libraries like:React Router (for routing), Redux or Zustand (for state management), Axios (for HTTP requests)
 
+## STyling
+
+  - Inline: <div style={{ color: 'blue', fontSize: '18px' }}>Hello</div>
+  - Styled Components (CSS-in-JS):
+```js
+import styled from 'styled-components';
+
+const Button = styled.button`
+  background: orange;
+  color: white;
+`;
+
+<Button>Click Me</Button>
+```
+
 ## Class componets
 Class components in React are a way to define components using ES6 classes. They were the primary method for creating components before the introduction of React Hooks, which enabled functional components to manage state and lifecycle methods.\
 
@@ -67,6 +85,18 @@ Before the introduction of Hooks in React, functional components were called sta
     }
    }
 ```
+## React Router
+
+React Router is a standard routing library for React.\
+It allows you to navigate between different pages (components) in a single-page application (SPA) without reloading the page.\
+| Feature           | Description                                                |
+| ----------------- | ---------------------------------------------------------- |
+| `<BrowserRouter>` | Wraps your app and enables routing.                        |
+| `<Routes>`        | Holds all the different `<Route>`s (v6+).                  |
+| `<Route>`         | Defines which component to show for which path.            |
+| `<Link>`          | Replaces `<a>` to move between pages without reload.       |
+| `useNavigate()`   | Hook to navigate programmatically (like `history.push()`). |
+| `useParams()`     | Hook to get route parameters (like `:id`).                 |
 
 ## HOOKS
 
@@ -249,4 +279,6 @@ Thye're special React components that catch errors in other components (during r
 Usage: If something breaks inside your component (like a bug in render), your whole React app might go blank or stop working.\
 
 With an error boundary, you can: Catch the error, Show a friendly message like "Something went wrong", Keep the rest of the app running\
+
+
 
