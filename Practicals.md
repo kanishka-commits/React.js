@@ -246,4 +246,25 @@ const ProtRoute = ({ children }) => {
 ({ children }) - This component receives whatever is inside it in JSX as children.
 i.e `<ProtQuizRoute> <QuizPage /> </ProtQuizRoute>`
 
+**This is React's standard way of passing data between siblings:**
+  - If siblings are on the same route:A → Parent → B
+  - If siblings are not on the same route (i.e., not rendered at the same time): you can use a React Context or Redux store to hold shared data.
 
+**Switching Between Pages Using React Router:**
+  - Using react router dom(RRD):  <Route path="/" element={<HomePage />} />
+  - Via Links: <nav> <Link to="/">Home</Link> | </nav>(also vias RRD)
+
+
+**Strict Mode:**
+  - It’s a debugging tool, not a feature that changes your UI.
+  - StrictMode does NOT run in production — it's only for development.
+    `<React.StrictMode> <App /> </React.StrictMode>`
+
+**How to prevent re-renders in React:**
+  - React.memo() – Avoids re-render if props don’t change (for components).
+  - useCallback() – Memoizes functions so they don’t change on every render.
+  - useMemo() – Caches expensive calculations.
+  - Avoid same state update – Don’t call setState if the value hasn’t changed.
+  - Split components – Break large components into smaller ones to isolate re-renders.
+
+**How to re-render the view when the browser is resized?**:To re-render a React component when the browser is resized, you can use the useEffect hook with the resize event listener.
