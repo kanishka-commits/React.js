@@ -250,6 +250,8 @@ i.e `<ProtQuizRoute> <QuizPage /> </ProtQuizRoute>`
   - If siblings are on the same route:A → Parent → B
   - If siblings are not on the same route (i.e., not rendered at the same time): you can use a React Context or Redux store to hold shared data.
 
+Redux stores and manages your app’s data (state) in one central place, and updates it in a predictable, controlled way.
+
 **Switching Between Pages Using React Router:**
   - Using react router dom(RRD):  <Route path="/" element={<HomePage />} />
   - Via Links: <nav> <Link to="/">Home</Link> | </nav>(also vias RRD)
