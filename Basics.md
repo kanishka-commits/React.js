@@ -15,6 +15,11 @@ Why Virtual Dom: Each time the data changes in a react app, a new virtual DOM ge
 SEO FRiendly: It also allows server-side rendering, which boosts the SEO of an app.\
 Higher-Order Component(HOC) is a function that takes in a component and returns a new component. \
 
+`SSR: Server → (renders HTML + data) sends full page → Browser displays instantly → JS takes over.`
+
+`CSR:Server → sends blank HTML + JS → Browser runs JS → Content appears later.`
+
+
 **Concept: React uses two virtual DOMs to render the user interface. One of them is used to store the current state of the objects and the other to store the previous state of the objects. Whenever the virtual DOM gets updated, react compares the two virtual DOMs and gets to know about which virtual DOM objects were updated. After knowing which objects were updated, react renders only those objects inside the real DOM instead of rendering the complete real DOM. This way, with the use of virtual DOM, react solves the problem of inefficient updating.**
 
 few techniques to optimize React app performanc- Lazyloading, useMemo()\
