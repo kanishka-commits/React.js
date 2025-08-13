@@ -103,6 +103,7 @@ It allows you to navigate between different pages (components) in a single-page 
 | `useNavigate()`   | Hook to navigate programmatically (like `history.push()`). |
 | `useParams()`     | Hook to get route parameters (like `:id`).                 |
 
+useNavigate(): redirect the user without them clicking a link.
 ## HOOKS
 
 React Hooks are the built-in functions that permit developers for using the state and lifecycle methods within React components. These are newly added features made available in React 16.8 version.\
