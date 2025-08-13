@@ -110,7 +110,7 @@ React Hooks are the built-in functions that permit developers for using the stat
 Earlier only class components were used for state management and lifecycle methods.\
 
 Rules:
-  - Always put hooks at the top of your function component.
+  - Always put hooks at the top of your function component: don’t call hooks inside loops, conditions, or nested functions.
   - Use hooks only inside function components, not in normal functions or class components.
 
 
