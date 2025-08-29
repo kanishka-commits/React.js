@@ -1,11 +1,11 @@
-React is a front-end and open-source JavaScript library which is useful in developing user interfaces specifically for applications with a single page. It is helpful in building complex and reusable user interface(UI) components of mobile and web applications as it follows the component-based approach.\
+React is a front-end and open-source JavaScript library which is useful in developing user interfaces specifically for applications with a single page (one main HTML page, content updates dynamically). It is helpful in building complex and reusable user interface(UI) components of mobile and web applications as it follows the component-based approach.\
 React is written in JavaScript.
 
 React + DOM = Webpages\
 React + Native = Mobile Apps
 
 We can use React via **CDN links**  without installing anything via npm. This is actually the simplest way to try React or include it in a small project
-Each lifecycle of a component is having 3 phases which include mount, unmount, and update.\
+Each lifecycle of a component is having 4 phases which include initilization, mount, update, unmount
 
 **React is a library, but when combined with tools like React Router, Redux, Next.js, etc., it can feel like a framework.**
 
@@ -20,19 +20,26 @@ SEO FRiendly: It also allows server-side rendering, which boosts the SEO of an a
 Higher-Order Component(HOC) is a function that takes in a component and returns a new component. \
 
 `Always tell React to do your task, NEVER interact with DOM directly, else changes will not be made on DOM`
-`SSR: Server → (renders HTML + data) sends full page → Browser displays instantly → JS takes over.`
 
+`SSR: Server → (renders HTML + data) sends full page → Browser displays instantly → JS takes over.`\
 `CSR:Server → sends blank HTML + JS → Browser runs JS → Content appears later.`
 
 
 **Concept: React uses two virtual DOMs to render the user interface. One of them is used to store the current state of the objects and the other to store the previous state of the objects. Whenever the virtual DOM gets updated, react compares the two virtual DOMs and gets to know about which virtual DOM objects were updated. After knowing which objects were updated, react renders only those objects inside the real DOM instead of rendering the complete real DOM. This way, with the use of virtual DOM, react solves the problem of inefficient updating.**
 
-few techniques to optimize React app performanc- Lazyloading, useMemo()\
+Few techniques to optimize React app performance:
+  - Prevent unnecessary re-renders: Use React.memo and useMemo so components don’t update if nothing changed.
+  - Load only what’s needed: Use lazy loading (React.lazy) to load parts of the app only when the user needs them.
+  - Keep state small: Don’t put too much in state to avoid slowing down re-renders.
+  - Optimize images and files: Compress images and load them lazily to make the app faster.
+  - Use production build: The production version of React runs much faster than the development one.
+
+    
 What are the different phases of the component lifecycle? Initialization, Mounting, Updating, Unmounting\
 *(Mounting refers to putting the elements into the browser DOM)*
 
 To use React: 
-  - Install node.js
+  - Install node.js: It provides the environment and tools to develop, build, and run React applications
   - on terminal:
     - npm create vite
     - cd, npm i (for downloading node packages), npm run dev/npm start
