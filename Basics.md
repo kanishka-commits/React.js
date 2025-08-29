@@ -1,6 +1,10 @@
 React is a front-end and open-source JavaScript library which is useful in developing user interfaces specifically for applications with a single page. It is helpful in building complex and reusable user interface(UI) components of mobile and web applications as it follows the component-based approach.\
-React is written in JavaScript.\
+React is written in JavaScript.
 
+React + DOM = Webpages\
+React + Native = Mobile Apps
+
+We can use React via **CDN links**  without installing anything via npm. This is actually the simplest way to try React or include it in a small project
 Each lifecycle of a component is having 3 phases which include mount, unmount, and update.\
 
 **React is a library, but when combined with tools like React Router, Redux, Next.js, etc., it can feel like a framework.**
@@ -15,6 +19,7 @@ Why Virtual Dom: Each time the data changes in a react app, a new virtual DOM ge
 SEO FRiendly: It also allows server-side rendering, which boosts the SEO of an app.\
 Higher-Order Component(HOC) is a function that takes in a component and returns a new component. \
 
+`Always tell React to do your task, NEVER interact with DOM directly, else changes will not be made on DOM`
 `SSR: Server → (renders HTML + data) sends full page → Browser displays instantly → JS takes over.`
 
 `CSR:Server → sends blank HTML + JS → Browser runs JS → Content appears later.`
@@ -25,6 +30,44 @@ Higher-Order Component(HOC) is a function that takes in a component and returns 
 few techniques to optimize React app performanc- Lazyloading, useMemo()\
 What are the different phases of the component lifecycle? Initialization, Mounting, Updating, Unmounting\
 *(Mounting refers to putting the elements into the browser DOM)*
+
+To use React: 
+  - Install node.js
+  - on terminal:
+    - npm create vite
+    - cd, npm i (for downloading node packages), npm run dev/npm start
+
+Npm Start for CRA projects, Npm run dev for Vite projects\
+
+```js
+IMPORTANT:
+In index.html we get an empty div with ID as 'root' ans script tag at end of body which includes src='main.jsx',\
+In main.jsx, we get ReactDOM.createRoot(document.getElementBYID('root').render(....) here inside render, we'll be wriitng our herojsx i..e APP.jsx + can write <Reactr.StrictMode>
+```
+`Note:When we use StrictMode, Functional components are rendered twice (mount → unmount → mount again) only in development. This is to ensure your components are “pure” and side-effects (like console.log, API calls, or state mutations) don’t happen unintentionally during renders.`
+
+rafce: React Arrow Function Component Export
+
+## Two-way binding
+
+- If the data in state changes, the UI updates.
+- If the user changes the UI input, the state updates.
+So there’s a loop (state ↔ UI).
+
+eg:
+```js
+  const [text, setText] = useState(""); // state
+  return (
+    <div>
+      <input 
+        value={text} 
+        onChange={(e) => setText(e.target.value)} // state updates on input
+      />
+      <p>You typed: {text}</p> {/* UI updates from state */}
+    </div>
+  );
+```
+
 ## Create React App (CRA) 
 It's a command-line interface (CLI) tool that automates the setup of a new React project. It was officially supported by the React team and provided a streamlined way to get started with React development without needing to manually configure build tools like Webpack and Babel. 
 
@@ -123,7 +166,7 @@ State is a built-in object used to store local, changeable data in a component.
 - Re-renders the component when the state changes.
 - Commonly used for toggles, counters, form inputs, etc.
 
-- You use `useState` when something on the screen needs to update based on user interaction.
+- You use `useState` when something on the screen needs to update based on user interaction. (live updates, validations)
 - To store and change values (state)
 **Why?**  
 Because regular variables don’t remember values between renders — `useState` does.
@@ -160,6 +203,7 @@ Because it makes your code cleaner by avoiding repeated prop passing.
 - Commonly used to access DOM elements or keep track of previous values.
 
 - To store something without re-rendering
+- Use useRef if you only need the value at a specific time (like on form submit).
 **Why?**  
 Because sometimes you need to store something that doesn’t need to affect the UI.
   
@@ -260,7 +304,10 @@ When a list updates (items are added, removed, or reordered), React uses keys to
 NOte: Avoid using indexes (i) as keys unless the list will never change in order or size. Indexes can cause UI bugs when items are added/removed.\
 
 ## Controlled and Uncontrolled components
-Controlled and uncontrolled components are just different approaches to handling input from elements in react. 
+Controlled and uncontrolled components are just different approaches to handling input from elements in react. \
+  - (useRef) → Uncontrolled form. React doesn’t track changes until submit.
+  - (useState) → Controlled form. React updates state as user types, which is cleaner for validation, live previews, etc.
+    
 
 | Feature                | Controlled                                 | Uncontrolled            |
 | ---------------------- | ------------------------------------------ | ----------------------- |
