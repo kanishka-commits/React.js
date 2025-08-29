@@ -270,3 +270,12 @@ Redux stores and manages your app’s data (state) in one central place, and upd
   - Split components – Break large components into smaller ones to isolate re-renders.
 
 **How to re-render the view when the browser is resized?**:To re-render a React component when the browser is resized, you can use the useEffect hook with the resize event listener.
+
+
+### Axios
+Axios is a popular JavaScript library used to make HTTP requests (GET, POST, PUT, DELETE, etc.) from:
+  - Browser (client-side, e.g. React, Vue)
+  - Node.js (server-side
+
+### react-toastify 
+It's a small library for React that helps you show toast notifications (those little popup messages that appear at the top/bottom of the screen).
