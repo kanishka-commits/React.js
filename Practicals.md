@@ -16,6 +16,10 @@ const handleChange=(e)=>{
 
 `Why in React we prefer arrow functions? this is taken from the surrounding scope → no binding required.`
 
+An HTTPS request is how a client talks to a server securely. First, the browser establishes a secure TLS connection with the server, then it sends an HTTP request containing a method (like GET or POST), headers, and sometimes a body. The server responds with a status code, headers, and body. HTTPS ensures the data is encrypted, so attackers can’t read or tamper with it. For example, when I log in on a site, my credentials are sent via an HTTPS POST request, encrypted over the network.\
+  - SSL → Secure Sockets Layer
+  - TLS → Transport Layer Security (newer, more secure, upgraded version of SSL)
+
 #### Create dom element in react script (when we add react using cdn links):
 ```js
 var h1 = React.createElement('h1', null, 'Hello from H1')
