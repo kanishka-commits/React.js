@@ -168,12 +168,17 @@ we can opt for :
 //Use anywhere
 const { user } = useContext(UserContext);
 ```
+### REDUX
+Redux is a state management library for JavaScript apps\
 
-### React Reducer
+
+
+#### React Reducer
 A reducer is a function that controls how your state changes in response to certain actions.\
-  - It takes in:
+It takes in:
   - the current state
   - an action (describes what happened)
+    
 And returns:
   - a new updated state
 
@@ -209,6 +214,11 @@ is the `action`
 - action.type → tells the reducer what to do
 - action.payload → gives it the data to do it (optional)
 - reducer → Function that receives action and updates state
+
+**Context API vs Redux**
+Context API is mainly for avoiding prop drilling. You wrap a provider at the top level, and any component can directly consume the value. But the limitation is — when the context value changes, all components using that context re-render, even if they don’t all need the updated part. This can lead to performance issues in larger apps.
+
+Redux, on the other hand, is a complete state management library. Components can subscribe only to the specific part of state they care about, so only the relevant components re-render. Redux also comes with powerful debugging tools like Redux DevTools
 
   ### beforeunload
 It's a special browser event that runs when:
