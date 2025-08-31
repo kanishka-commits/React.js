@@ -222,6 +222,8 @@ Because sometimes you need to store something that doesn’t need to affect the 
 - Useful for improving performance when doing heavy computations or rendering large lists.
 
 - You use `useMemo` when something takes time to calculate and you don’t want to redo it unnecessarily.
+  - useMemo → prevents re-calculating processedData on every render.
+  - React.memo → prevents Child from re-rendering unnecessarily.
 
 **Why?**  
 To make your app faster by avoiding slow re-computations.
