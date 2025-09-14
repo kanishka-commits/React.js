@@ -179,6 +179,22 @@ State is a built-in object used to store local, changeable data in a component.
 Because regular variables don’t remember values between renders — `useState` does.
 
 
+**note**
+```
+setlist([...list,'A']);
+setlist([...list,'B']);
+setlist([...list,'C']);
+console.log(list);
+```
+output `['C']`
+
+why? State updates in React are asynchronous and batched, so only the last one will matter,\
+React does not immediately change list. Instead, it schedules the update, and your function keeps running with the old value of list.\
+The state actually updates later when React re-renders the component.
+
+**If you’re looping and want to build a new array → build it outside state and call setState once.\
+If you must update multiple times → use the functional form setState(prev => ...).**
+
 **2. useEffect() – Handle Side Effects**
 
 - Runs code after the component renders.
