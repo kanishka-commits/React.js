@@ -188,12 +188,22 @@ console.log(list);
 ```
 output `['C']`
 
+Similarly with:
+```
+const increment = () => {
+  setCounter(counter + 1);
+  setCounter(counter + 3);
+};
+```
+
 why? State updates in React are asynchronous and batched, so only the last one will matter,\
 React does not immediately change list. Instead, it schedules the update, and your function keeps running with the old value of list.\
 The state actually updates later when React re-renders the component.
 
 **If you’re looping and want to build a new array → build it outside state and call setState once.\
 If you must update multiple times → use the functional form setState(prev => ...).**
+
+
 
 **2. useEffect() – Handle Side Effects**
 
@@ -318,6 +328,62 @@ It was introduced in React v16.8.\
 Custom Hooks cannot be used inside class components, only inside function components.\
 
 
+
+### note: React doesn’t mutate state immediately
+```js
+import React, { useState } from "react";
+
+function Counter() {
+  const [counter, setCounter] = useState(0);
+
+  console.log("🎬 Component rendered, counter =", counter);
+
+  const increment = () => {
+    console.log("before update:", counter);
+    setCounter(counter + 1);
+    console.log("after update:", counter);
+  };
+
+  return (
+    <div>
+      <h1>Counter: {counter}</h1>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+```
+
+output: 
+```
+before update: 0
+after update: 0   ❌ (still old value, not updated instantly)
+🎬 Component rendered, counter = 1   ✅ (updated after re-render)
+```
+
+explanation: React’s state is immutable for the current render.\
+When a component is rendering, counter has a fixed value (the one React gave it at the start of that render).\
+Calling setCounter(...) does not mutate that value. Instead:
+  - React schedules a re-render with the new state.
+  - After your function finishes, React re-runs the component function with the new state.
+  - Only in that new render do you see the updated value.
+So inside the same render cycle, counter is still the old value.
+
+Thus, when we do:
+```js
+const increment = () => {
+    setCounter(counter + 1);
+    setCounter(counter + 1);
+  };
+```
+
+We still get ans as counter+1, because they are asynchronous. Thus we've
+
+## CallBack in Updater Function
+`setCounter((prev)=>prev+1)`
+
+We use it when **New value depends on previous value and we need synchronization**
 
 ## key
 A key is a unique identifier that helps React track elements when rendering lists.\
