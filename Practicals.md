@@ -288,7 +288,10 @@ const addData=(e)=>{
 }
 
 export default App
+```
 
+in ` setUser([...user,e]);` **we pass the prev object because when we make changes in the object's key, it doesn't reflect in the original object (original address) in REACT, thus we create a new object i.e. new address
+```js
 //Add.jsx
 
 import React, {useRef,useState} from 'react'
@@ -757,3 +760,53 @@ const App = () => {
 export default App;
 
 ```
+
+### Q. Re render in useState
+```js
+import React, { useState } from "react";
+
+function Counter() {
+  const [counter, setCounter] = useState(0);
+  console.log("🎬 Component rendered, counter =", counter);
+
+  const increment = () => {
+    setCounter(25);
+  };
+
+  return (
+    <div>
+      <h1>Counter: {counter}</h1>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+
+export default Counter;
+
+```
+
+
+### Q. Lazy Loading
+
+```js
+function getInitialValue() {
+  console.log("getInitialValue called");
+  return 25;
+}
+
+const [counter, setCounter] = useState(getInitialValue());
+```
+
+getInitialValue runs on every mount, because component itself calls it, not React.
+
+```js
+function getInitialValue() {
+  console.log("getInitialValue called");
+  return 25;
+}
+
+const [counter, setCounter] = useState(getInitialValue);
+```
+
+getInitialValue runs only once, because react calls it once (lazy loading)\
+same case wuth callbcak functions
